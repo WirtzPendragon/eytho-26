@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     user-select: none;
+    transform: none;
 }
 
 html, 
@@ -44,11 +45,16 @@ body {
     height: 40%;
 }
 
+.about, .slider, .about-container {
+    overflow-x: hidden;
+}
+
 
 nav {
+    width: 100%;
     position: fixed;
     z-index: 50;
-    margin: 20px 25px;
+    padding: 20px 25px;
 }
 
 .nav-logo {
