@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full h-24 flex px-[77px] justify-between items-center bg-white shadow-lg z-50">
+        <img src="assets/logo-eytho-landscape-resize.png" alt="Logo" class="w-[285px] h-[77px]">
+        <div>
+            <a href="#home" class="nav-link mr-8 text-[#D92526] font-bold text-base hover:text-[#D92526] hover:font-bold">Home</a>
+            <a href="#about" class="nav-link mr-8 text-[#474747] text-base hover:text-[#D92526] hover:font-bold">About Us</a>
+            <a href="#competition" class="nav-link mr-8 text-[#474747] text-base hover:text-[#D92526] hover:font-bold">Competition</a>
+            <a href="#location" class="nav-link mr-8 text-[#474747] text-base hover:text-[#D92526] hover:font-bold">Location</a>
+            <a href="#contact" class="nav-link mr-16 text-[#474747] text-base hover:text-[#D92526] hover:font-bold">Contact Us</a>
+            <button class="w-52 h-12 border-2 rounded-2xl border-[#D92526] text-[#D92526] text-base hover:bg-[#D92526] hover:text-white font-semibold transition duration-300">Pendaftaran</button>
+        </div>
+    </nav>
+
+    <!-- Content Sections -->
+    <main class="mt-[160px]">
+        <section id="home" class="w-screen flex justify-center items-center flex-col ">
+            <img src="assets/logo-eytho-landscape-resize.png" alt="" class="w-[355px] h-[96px] mb-[30px]">
+            <div class="flex justify-evenly w-full px-[125px] translate-y-[20px]">
+                <div class="flex flex-col items-center ">
+                    <h3 class="font-bold text-base lg:text-lg">English Department</h3>
+                    <p class="text-xs lg:text-lg text-[#474747] mt-1">SMA/SMK</p>
+                </div>
+                <div class="flex flex-col items-center ">
+                    <h3 class="font-bold text-base lg:text-lg">Housekeeping Department</h3>
+                    <p class="text-xs lg:text-lg text-[#474747] text-center mt-1">SMA/SMK <br>
+                        Umum/Hotelier</p>
+                </div>
+                
+            </div>
+
+            <div class="flex relative w-screen justify-evenly">
+
+                <div class="flex flex-col justify-evenly">
+                <div class="flex flex-col items-center ">
+                    <h3 class="font-bold text-lg">Business Department</h3>
+                    <p class="text-lg text-[#474747] mt-1">SMA/SMK</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <h3 class="font-bold text-lg">IT Department</h3>
+                    <p class="text-lg text-[#474747] mt-1">SMA/SMK</p>
+                </div>
+            </div>
+
+            <div class="flex justify-center items-center">
+            <img src="assets/logo-EYTHO-only-1.png" alt="" class="absolute  lg:w-[689px] z-0 opacity-20">
+            <img src="assets/test1-2.png" alt="" class="z-10 lg:w-[505px] translate-y-[-4rem]">
+        </div>
+
+            <div class="flex flex-col justify-evenly">
+                <div class="flex flex-col items-center">
+                    <h3 class="font-bold text-lg text-center">Food & Beverage <br>
+                        Department</h3>
+                    <p class="text-lg text-[#474747] mt-1">SMA/SMK</p>
+                </div>
+                <div class="flex flex-col items-center ">
+                    <h3 class="font-bold text-lg">Front Office Department</h3>
+                    <p class="text-lg text-[#474747] text-center mt-1">SMA/SMK <br>
+                        Umum/Hotelier</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex justify-evenly w-full px-[125px] translate-y-[-30px]">
+            <div class="flex flex-col items-center ">
+                <h3 class="font-bold text-lg">Culinary Department</h3>
+                <p class="text-lg text-[#474747] mt-1">SMA/SMK</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <h3 class="font-bold text-lg text-center">Creative & Digital <br>
+                    Marketing</h3>
+                <p class="text-lg text-[#474747] text-center mt-1">SMA/SMK</p>
+            </div>
+        </div>
+        </section>
+
+        <section id="about" class="h-screen bg-gray-200 flex items-center justify-center">
+            <h1 class="text-3xl">About Us Section</h1>
+        </section>
+        <section id="competition" class="h-screen bg-gray-300 flex items-center justify-center">
+            <h1 class="text-3xl">Competition Section</h1>
+        </section>
+        <section id="location" class="h-screen bg-gray-400 flex items-center justify-center">
+            <h1 class="text-3xl">Location Section</h1>
+        </section>
+        <section id="contact" class="h-screen bg-gray-500 flex items-center justify-center">
+            <h1 class="text-3xl">Contact Us Section</h1>
+        </section>
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+        // Ambil semua elemen navigasi
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Fungsi untuk memperbarui link aktif
+        const updateActiveLink = () => {
+            let fromTop = window.scrollY;
+
+            navLinks.forEach(link => {
+                const section = document.querySelector(link.getAttribute('href')); // Cari section yang terkait
+
+                // Periksa apakah posisi scroll berada dalam section
+                if (
+                    section.offsetTop <= fromTop &&
+                    section.offsetTop + section.offsetHeight > fromTop
+                ) {
+                    link.classList.add('text-[#D92526]', 'font-bold'); // Tambahkan kelas aktif
+                    link.classList.remove('text-[#474747]'); // Hapus kelas non-aktif
+                } else {
+                    link.classList.remove('text-[#D92526]', 'font-bold'); // Hapus kelas aktif
+                    link.classList.add('text-[#474747]'); // Tambahkan kelas non-aktif
+                }
+            });
+        };
+
+        // Event listener untuk scroll
+        window.addEventListener('scroll', updateActiveLink);
+
+        // Debugging: jalankan update pertama kali untuk memastikan kelas awal benar
+        updateActiveLink();
+    </script>
+</body>
+</html>
