@@ -45,9 +45,6 @@ body {
     height: 40%;
 }
 
-.about, .slider, .about-container {
-    overflow-x: hidden;
-}
 
 
 nav {
