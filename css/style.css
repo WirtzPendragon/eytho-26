@@ -663,7 +663,7 @@ nav {
 }
 
 .maps-frame {
-    width: 100vw;
+    width: 100%;
     height: 386px;
     position: relative;
     z-index: 0;
@@ -683,7 +683,7 @@ nav {
     opacity: 20%;
     position: absolute;
     top: 3.5rem;
-    left: 5;
+    left: 10px;
 }
 
 .logo-location-right {
@@ -692,7 +692,7 @@ nav {
     opacity: 20%;
     position: absolute;
     top: 3.5rem;
-    right: 0;
+    right: 10px;
 }
 
 .logo-location-middle {
