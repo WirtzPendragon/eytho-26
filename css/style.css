@@ -13,6 +13,7 @@ body {
     font-family: "Montserrat";
     overflow-x: hidden;
     background-color: #fff;
+    scroll-behavior: smooth;
 }
 
 #cursor{
@@ -25,8 +26,8 @@ body {
     border-radius: 50%;
     background-color: rgba(241, 241, 241, 0.3);
     backdrop-filter: blur(8px);
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -208,8 +209,12 @@ nav > div {
 }
 
 @media(max-width: 900px){
+    .logo {
+        width: 48px;
+    }
+
     .info {
-        font-size: 1;
+        font-size: 14px;
     }
 }
 
@@ -342,7 +347,7 @@ main {
     background: rgba(0, 0, 0, 0);
 }
 
-@media(max-width: 768px) {
+@media(max-width: 900px) {
     .slider-images {
         width: 100vw;
         height: 100vh;
@@ -359,7 +364,7 @@ main {
     }
 
     .slider-title-wrapper p {
-        font-size: 30px;
+        font-size: 50px;
     }
 }
 
@@ -488,6 +493,7 @@ main {
 .btn-pendaftaran p{
     transition: 0.3s ease;
     margin-left: 30px;
+    z-index: 2;
     /* letter-spacing: 1px; */
 }
 
@@ -516,7 +522,7 @@ main {
     border-radius: 100%;
     background-color: #D92526;
     position: absolute;
-    z-index: -1;
+    z-index: 1;
     left: 15px;
     transition: 0.5s ease;
 }
@@ -536,8 +542,89 @@ main {
 
 
 .right-image, .left-image {
-    max-width: 50%; /* Sesuaikan agar tidak melebihi 50% layar */
+    max-width: 50%;
     box-sizing: border-box;
+}
+
+@media(max-width: 900px) {
+    .eytho-transition {
+        width: 250px;
+        height: 250px;
+        margin: 120px auto 0px ;
+    }
+
+    .about {
+        padding-top: 20px;
+    }
+
+    .right-image {
+        visibility: hidden;
+        width: 0;
+    }
+
+    .left-image {
+        visibility: hidden;
+        width: 0;
+    }
+
+    .about-container {
+        width: 100vw;
+    }
+
+    .about-title {
+        font-size: 20px;
+        margin: 0 5px;
+    }
+
+    .about-p {
+        font-size: 14px;
+        line-height: 1.4;
+        margin: 30px 10px 50px;
+    }
+
+    .kategori ul li::marker{
+        color: #D92526;
+        font-size: 20px;
+        list-style: disc;
+    }
+    
+    .kategori ul li{
+        color: #474747;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .kategori h3 {
+        font-size: 18px;
+    }
+
+    .btn {
+        margin:0 auto;
+        margin-top: 30px;
+        width: 225px;
+        height: 71px;
+    }
+    
+    .btn-pendaftaran {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 225px;
+        height: 42px;
+        border: solid 2px #D92526;;
+        border-radius: 40px;
+        background-color: #fff;
+        font-weight: 600;
+        font-size: 12px;
+        color: #D92526;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+        background-color: #D92526;
+    }
 }
 
 @media(max-width: 768px) {
@@ -714,9 +801,25 @@ main {
     width: 370px;
 }
 
+
 .category-competition p {
     padding:2px;
 }
+
+.category-competition a {
+    color: #474747;
+    transition: 0.3s ease;
+}
+
+.category-competition a:hover {
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+
+.category:hover .category-competition a {
+    color: #fff;
+} 
 
 .category-images{
     width: 422px;
@@ -725,13 +828,116 @@ main {
     justify-content: space-evenly;
 }
 
-
 .category-img {
     width: 92px;
     height: 92px;
+    transition: 0.3s ease;
 }
 
-@media(max-width: 900px) {
+.category-img:hover{
+    transform: scale(1.2);
+    transition: 0.3s ease;
+}
+
+@media(max-width:900px) {
+    .competition-logo {
+        width: 0%;
+    }
+
+    .competition-header {
+        display: flex;
+        justify-content: center;
+    }
+
+    .competition-title {
+        font-size: 42px;
+        color: #D92526;
+        font-weight: 600;
+        text-align: center;
+    }
+    
+    .competition-list {
+        margin-top: 28px;
+        width: 100%;
+        height: fit-content;
+    }
+
+    .competition-subtitle {
+        font-size: 14px;
+        text-align: center;
+        margin-top: 3px;
+    }
+    
+    .category {
+        width: 100%;
+        height: auto;
+        padding: 15px 25px;
+        border-bottom: solid 1px black;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    .first-category {
+        border-top: solid 1px black;
+    }
+    
+    .category-title {
+        width: 470px;
+        font-size: 18px;
+        text-align: center;
+    }
+    
+    .category-competition {
+        width: 470px;
+        font-size: 16px;
+        text-align: center;
+        margin: 8px 0;
+    }
+    
+    .category-competition p {
+        padding-bottom: 8px;
+    }
+    
+    .category-images{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    
+    .category-img {
+        width: 145px;
+        height: auto;
+        margin-top:20px;
+    }
+
+    .category:hover {
+        background-color: transparent;
+        color: #474747;
+    }
+
+    
+    .category .category-title h2{
+        transition: none;
+    }
+    
+    .category:hover .category-title h2{
+        transform:none;
+        transition: none;
+    }
+
+    .category .category-images{
+        opacity: 1;
+        transition: none;
+    }
+}
+
+@media(max-width: 768px) {
     .competition-logo {
         width: 0%;
     }
@@ -760,6 +966,7 @@ main {
         padding: 15px 25px;
         border-bottom: solid 1px black;
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
@@ -770,7 +977,7 @@ main {
     }
     
     .category-title {
-        width: 405px;
+        width: 375px;
         font-size: 12px;
         text-align: center;
     }
@@ -787,7 +994,7 @@ main {
     }
     
     .category-images{
-        width: 422px;
+        width: 375px;
         height: auto;
         display: flex;
         flex-wrap: wrap;
@@ -850,7 +1057,6 @@ main {
     width: 100%;
     height: 386px;
     position: relative;
-    z-index: 0;
 }
 
 .location-maps {
@@ -868,6 +1074,7 @@ main {
     position: absolute;
     top: 3.5rem;
     left: 10px;
+    z-index: 0;
 }
 
 .logo-location-right {
@@ -876,27 +1083,17 @@ main {
     opacity: 20%;
     position: absolute;
     top: 3.5rem;
-    right: 10px;
-}
-
-.logo-location-middle {
-    height: 420px;
-    width: auto;
-    opacity: 20%;
-    position: absolute;
-    top: 21.5rem;
-    left: 44%;
+    right: 0;
     z-index: 0;
-    transform: rotate(90deg);
 }
 
-@media(max-width: 768px) {
+@media(max-width: 900px) {
     .location-title {
         color: black;
         font-weight: 700;
         text-align: center;
         padding-top: 64px;
-        font-size: 24px;
+        font-size: 32px;
         margin-bottom: 20px;
     }
     
@@ -919,7 +1116,7 @@ main {
         width: 100%;
         height: 100%;
         margin-top: 32px;
-        padding:15px;
+        padding:0 50px ;
         z-index: 10;
     }
     
@@ -932,63 +1129,181 @@ main {
         width: 0;
         opacity: 0%;
     }
-    
-    .logo-location-middle {
-        width: 0;
-        opacity: 0%;
+}
+
+@media(max-width:768px){
+    .location-title {
+        font-size: 24px;
+    }
+
+    .location-maps {
+        padding:15px;
     }
 }
 
-footer  {
-width: 100vw;
-height: 100vh;
-margin-top: 270px;
-background-color: aqua;
-display: flex;
-align-items: center;
-flex-direction: column;
-}
-
-.footer-about {
-    width: 55%;
+footer {
+    background-color: #111;
+    margin-top: 375px;
+    width: 100%;
+    height: 275px;
+    padding: 40px 60px 15px 30px;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    font-size: 12px;
-    margin: 30px 20px 0;
-    text-align: center;
-    color: #474747;
+    justify-content: space-between;
+    color: #fff ;
 }
 
-.footer-about p {
-    margin-top: 15px;
-    line-height: 20px;
-}
-
-.competition-logo-footer {
-    width: 225px;
+.footer-logo {
+    width: 200px;
     height: auto;
-    margin: 0 auto;
 }
 
-.contact-us {
-    width: 90%;
+.footer-left {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    color: #474747;
-    margin-top: 30px;
-    padding-bottom: 100px;
-    border-bottom: solid 1px #474747;
 }
 
-.contact-us h2 {
-    font-weight: 400;
+.footer-nav {
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.footer-eytho2026 {
+    margin-top: 20px;
+    color: #a6a6a6;
+}
+
+.contact {
     font-size: 20px;
-    margin-bottom: 15px;
+    font-weight: 600;
+    margin-bottom: 24px;
 }
 
-.contact-us p {
-    font-size: 12px;
-    line-height: 20px;
+.contact-person {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.contact-person svg {
+    width: 25px;
+    margin-right: 12px;
+}
+
+svg {
+    filter: invert();
+}
+
+.follow-us {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.social-media-list {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.social-media-list svg {
+    width: 30px;
+    margin-right: 12px;
+}
+
+@media(max-width: 900px){
+    footer {
+        background-color: #111;
+        margin-top: 220px;
+        width: 100%;
+        height: auto;
+        padding: 40px 15px 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        color: #fff ;
+    }
+    
+    .footer-logo {
+        margin: 0 auto;
+        width: 225px;
+        height: auto;
+    }
+    
+    .footer-left {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .footer-nav {
+        margin-top: 20px;
+        font-weight: 600;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-eytho2026 {
+        margin-top: 32px;
+        font-size: 14px;
+        color: #a6a6a6;
+    }
+    
+    .contact-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .contact {
+        margin-top: 64px;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+    
+    .contact-person {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        margin-bottom: 14px;
+    }
+    
+    .contact-person svg {
+        width: 20px;
+        margin-right: 12px;
+    }
+    
+    svg {
+        filter: invert();
+    }
+    
+    .follow-us {
+        font-size: 20px;
+        text-align: center;
+        font-weight: 600;
+        margin-top: 64px;
+        margin-bottom: 24px;
+    }
+
+    .social-media {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .social-media-list {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        margin-bottom: 14px;
+    }
+    
+    .social-media-list svg {
+        width: 20px;
+        margin-right: 12px;
+    }
 }
