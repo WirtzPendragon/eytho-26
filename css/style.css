@@ -44,6 +44,27 @@ body {
     height: 40%;
 }
 
+@media (max-width:900px) {
+    
+    .inner-cursor{
+        border-radius: none;
+        background-color: transparent;
+        backdrop-filter: none;
+        width: 0%;
+        height: 0%;
+    }
+    
+    .inner-cursor.active{
+        transform: scale(1);
+        transition: 0.3s ease;
+    }
+    
+    .inner-cursor img{
+        width: 40%;
+        height: 40%;
+    }
+}
+
 a {
     text-decoration: none;
     color: #fff;
@@ -710,11 +731,9 @@ main {
     height: 92px;
 }
 
-@media(max-width: 768px) {
+@media(max-width: 900px) {
     .competition-logo {
-        width: 174px;
-        height: 47px;
-        margin: 0 auto;
+        width: 0%;
     }
 
     .competition-title {
@@ -771,12 +790,35 @@ main {
         width: 422px;
         height: auto;
         display: flex;
+        flex-wrap: wrap;
+        align-items: center;
         justify-content: space-evenly;
     }
     
     .category-img {
-        width: 54px;
-        height: 54px;
+        width: 110px;
+        height: auto;
+        margin-top:20px;
+    }
+
+    .category:hover {
+        background-color: transparent;
+        color: #474747;
+    }
+
+    
+    .category .category-title h2{
+        transition: none;
+    }
+    
+    .category:hover .category-title h2{
+        transform:none;
+        transition: none;
+    }
+
+    .category .category-images{
+        opacity: 1;
+        transition: none;
     }
 }
 
