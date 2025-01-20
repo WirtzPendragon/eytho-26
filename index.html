@@ -9,7 +9,9 @@
 
     <link rel="stylesheet" href="css/style.css?v=2">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     </style>
 </head>
@@ -20,11 +22,39 @@
         </div>
     </div>
     <nav>
-        <img src="assets/logo-EYTHO-only-1.png" alt="" class="nav-logo nav-filter">
+        <div class="info">
+            <div  class="logo">
+               <a href=""><img src="assets/logo-EYTHO-only-1.png" alt=""></a> 
+            </div>
+            <p>EYTHO 2026</p>
+        </div>
+        <div class="toggle-btn">
+            <button class="burger" onclick="this.classList.toggle('active')"></button>
+        </div>
     </nav>
-    <!-- Content Sections -->
-    <main class="bg-white z-30">
-        <section class="">
+
+    <div class="overlay">
+        <div class="overlay-menu">
+            <div class="menu-item">
+                <p><a id="active" href="#home">HOME</a></p>
+            </div>
+            <div class="menu-item">
+                <p><a href="#about">ABOUT</a></p>
+            </div>
+            <div class="menu-item">
+                <p><a href="#competition">COMPETITION</a></p>
+            </div>
+            <div class="menu-item">
+                <p><a href="#location">LOCATION</a></p>
+            </div>
+            <div class="menu-item">
+                <p><a href="#contact">CONTACT</a></p>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section id="home">
             <div class="slider">
                 <div class="slider-images">
                     <div class="img"><img src="assets/department/img1.jpg" alt="" /></div>
@@ -117,9 +147,13 @@
         </section>
         
         <section id="competition">
-            <img src="assets/EYTHO 2026.png" alt="" class="competition-logo">
-            <h1 class="competition-title">Competition</h1>
-            <p class="competition-subtitle">Berikut adalah kategori kompetisi yang diadakan :</p>
+            <div class="competition-header">
+                <div>
+                    <h1 class="competition-title">Competition</h1>
+                    <p class="competition-subtitle">Berikut adalah kategori kompetisi yang diadakan :</p>
+                </div>
+                <img src="assets/EYTHO 2026.png" alt="" class="competition-logo">
+            </div>
             <div class="competition-list">
                 <a href="" class="category first-category">
                     <div class="category-title">
@@ -251,7 +285,7 @@
                 </div>
         </section>
 
-        <footer>
+        <footer id="contact">
             <div class="footer-about">
                 <img src="assets/EYTHO 2026.png" alt="" class="competition-logo-footer">
                 <p>Jl. Hayam Wuruk No.199, Panjer, Denpasar Selatan, Kota Denpasar, Bali 80239</p>
@@ -279,7 +313,56 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/gsap.js"></script>
-    <script src="js/CustomEase.min.js"></script>\
+    <script src="js/CustomEase.min.js"></script>
+    <script src="js/CSSRulePlugin.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let activeItemIndicator = CSSRulePlugin.getRule(".menu-item p#active::after");
+            const toggleButton = document.querySelector(".burger");
+            let isOpen = false;
+
+            gsap.set(".menu-item p", {y: 225});
+
+            const timeline = gsap.timeline({paused: true});
+
+            timeline.to(".overlay", {
+                duration: 1.5,
+                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                ease: "power4.inOut"
+            });
+
+            timeline.to(".menu-item p", {
+                duration: 1.5,
+                y: 0,
+                stagger: 0.2,
+                ease: "power4.out"
+        }, "-=1");
+
+        timeline.to(activeItemIndicator, {
+            width: "100%",
+            duration: 0,
+            ease: "power4.out",
+            delay: 0.5
+        }, "<");
+
+        timeline.to(".sub-nav", {
+            bottom: "10%",
+            opacity: 1,
+            duration: 0.5,
+            delay: 0.5
+        }, "<");
+
+        toggleButton.addEventListener("click", function(){
+            if (isOpen) {
+                timeline.reverse();
+            } else {
+                timeline.play();
+            }
+            isOpen = !isOpen;
+        })
+        })
+    </script>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
