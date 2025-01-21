@@ -13,7 +13,137 @@ body {
     font-family: "Montserrat";
     overflow-x: hidden;
     background-color: #fff;
-    scroll-behavior: smooth;
+    overflow-y: scroll;
+}
+
+.preloader{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 100;
+    top: 0px;
+    left: 0px;
+    background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s ease-in;
+    clip-path: inset(0 0 0 0);
+}
+
+.preloader.nonactive{
+    clip-path: inset(0 0 100% 0);
+    transition: 0.5s ease-in;
+}
+
+.header-1, .header-2{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    width: 500px;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: 1s ease;
+}
+
+.header-1 h1, .header-2 h1{
+    font-size: 50px;   
+}
+
+.header-1.active{
+    transform: translateY(0);
+    opacity: 1;
+    transition: 1s ease;
+}
+
+.header-2.active{
+    transform: translateY(-100%);
+    opacity: 1;
+    transition: 1s ease;
+}
+
+.header-1.active.nonactive{
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: 1s ease;
+}
+
+.header-2.active.nonactive{
+    transform: translateY(-200%);
+    opacity: 0;
+    transition: 1s ease;
+}
+
+.space-preloader{
+    width: 20px;
+    height: 100%;
+}
+
+
+@media(max-width: 900px){
+    .preloader{
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        z-index: 100;
+        top: 0px;
+        left: 0px;
+        background-color: #f8f8f8;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s ease-in;
+        clip-path: inset(0 0 0 0);
+    }
+    
+    .preloader.nonactive{
+        clip-path: inset(0 0 100% 0);
+        transition: 0.5s ease-in;
+    }
+    
+    .header-1, .header-2{
+        width: 100%;
+        display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center;
+    }
+    
+    .header-1 h1, .header-2 h1{
+        font-size: 30px;
+        text-align: center;   
+    }
+    
+    .header-1.active{
+        transform: translateY(0);
+        opacity: 1;
+        transition: 1s ease;
+    }
+    
+    .header-2.active{
+        transform: translateY(-100%);
+        opacity: 1;
+        transition: 1s ease;
+    }
+    
+    .header-1.active.nonactive{
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: 1s ease;
+    }
+    
+    .header-2.active.nonactive{
+        transform: translateY(-200%);
+        opacity: 0;
+        transition: 1s ease;
+    }
+    
+    .space-preloader{
+        width: 20px;
+        height: 100%;
+    }
 }
 
 #cursor{
@@ -97,6 +227,7 @@ nav > div {
 
 .info p {
     margin-left: 5px;
+    text-align: center;
 }
 
 .logo img{
@@ -398,19 +529,14 @@ main {
     opacity: 20%;
 }
 
-.left-testimoni {
-    
-    width: 199px;
-    height: 266px;
-    transform: rotate(19deg);
-    margin-right: 100px;
+.left-testimoni{
+    width: 275px;
+    transform: translateX(-100px);
 }
 
-.right-testimoni {
-    width: 199px;
-    height: 266px;
-    transform: rotate(-19deg);
-    margin-left: 100px;
+.right-testimoni{
+    width: 275px;
+    transform: translateX(100px);
 }
 
 .about-container {
@@ -544,6 +670,31 @@ main {
 .right-image, .left-image {
     max-width: 50%;
     box-sizing: border-box;
+}
+
+@media(max-width:1400px){
+    .right-eytho {
+        width: 147px;
+        height: auto;
+        opacity: 20%;
+    }
+    
+    .left-eytho {
+        width: 147px;
+        height: auto;
+        opacity: 20%;
+    }
+
+    .left-testimoni{
+        width: 275px;
+        transform: translateX(-25px);
+    }
+    
+    .right-testimoni{
+        width: 275px;
+        transform: translateX(25px);
+    }
+
 }
 
 @media(max-width: 900px) {
@@ -762,7 +913,7 @@ main {
     align-items: center;
     text-decoration: none;
     color: #474747;
-    transition: 0.3s ease;
+    transition: 0.5s ease;
 }
 
 .category:hover {
@@ -781,7 +932,7 @@ main {
 }
 
 .category .category-title h2{
-    transition: 0.1s ease;
+    transition: 0.3s ease;
 }
 
 .category:hover .category-title h2{
@@ -842,6 +993,15 @@ main {
 @media(max-width:900px) {
     .competition-logo {
         width: 0%;
+    }
+
+    .category:hover .category-competition a {
+        color: #474747;
+    } 
+
+    .category:hover {
+        background-color: #fff;
+        color: #474747;
     }
 
     .competition-header {
@@ -967,7 +1127,7 @@ main {
         border-bottom: solid 1px black;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         flex-wrap: wrap;
     }
@@ -1155,6 +1315,7 @@ footer {
 .footer-logo {
     width: 200px;
     height: auto;
+    filter: brightness(0) invert(1);
 }
 
 .footer-left {
@@ -1210,20 +1371,76 @@ svg {
     margin-right: 12px;
 }
 
+@media(max-width:1400px){
+    footer {
+        margin-top: 100px;
+    }
+    .footer-eytho2026 {
+        font-size: 12px;
+        color: #a6a6a6;
+    }
+
+    .footer-nav {
+        font-size: 12px;
+    }
+    
+    .contact {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+    
+    .contact-person {
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        margin-bottom: 14px;
+    }
+    
+    .contact-person svg {
+        width: 16px;
+        margin-right: 12px;
+    }
+    
+    svg {
+        filter: invert();
+    }
+    
+    .follow-us {
+        font-size: 16px;
+        text-align: center;
+        font-weight: 600;
+        margin-bottom: 24px;
+    }
+    
+    .social-media-list {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        margin-bottom: 14px;
+    }
+    
+    .social-media-list svg {
+        width: 16px;
+        margin-right: 12px;
+    }
+}
+
 @media(max-width: 900px){
     footer {
         background-color: #111;
-        margin-top: 220px;
+        margin-top: 100px;
         width: 100%;
-        height: auto;
-        padding: 40px 15px 10px;
+        height: 100vh;
+        padding: 160px 15px 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
         color: #fff ;
         position: relative;
-        z-index: 12;
+        z-index: 9;
     }
     
     .footer-logo {
@@ -1233,6 +1450,7 @@ svg {
     }
     
     .footer-left {
+        width: 200 qpx;
         display: flex;
         flex-direction: column;
     }
@@ -1241,15 +1459,21 @@ svg {
         margin-top: 16px;
         font-weight: 600;
         display: flex;
-        flex-direction: column;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
         align-items: center;
         font-size: 16px;
+    }
+
+    .footer-nav a{
+        margin-top: 10px;
     }
     
     .footer-eytho2026 {
         margin-top: 24px;
         font-size: 14px;
         color: #a6a6a6;
+        text-align: center;
     }
     
     .contact-list {
