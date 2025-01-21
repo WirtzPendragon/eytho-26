@@ -328,11 +328,11 @@ main {
     }
     
     .department h2 {
-        font-size:18px;
+        font-size:14px;
     }
     
     .department p {
-        font-size: 14px;
+        font-size: 12px;
     }
     
     .subtitle {
@@ -351,11 +351,11 @@ main {
     }
     
     .detail-kategori h2{
-        font-size: 18px;
+        font-size: 14px;
     }
     
     .detail-kategori p {
-        font-size: 14px;
+        font-size: 12px;
     }
     
     .desc {
